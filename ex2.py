@@ -18,6 +18,8 @@ wn.bgcolor("lightgreen")
 t.color("hotpink")
 t.width(3)
 
+
+
 #Draw polygon of n=8 and sz=50
 draw_poly(t,8,50)
 

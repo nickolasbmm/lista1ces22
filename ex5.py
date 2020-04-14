@@ -1,3 +1,14 @@
+import sys
+
+def test(did_pass):
+    # Print the result of a test
+    linenum = sys._getframe(1).f_lineno
+    if did_pass:
+        msg = "Test at line {0} ok." .format(linenum)
+    else:
+        msg = "Test at line {0} FAILED.".format(linenum)
+    print(msg)
+
 def words_to_sam(li):
     words=0
     found_sam=False
@@ -12,11 +23,11 @@ def words_to_sam(li):
     return words
 
 
-a = ["banana","rosa","maca"]
-b = ["banana","sam","rosa","maca"]
-c=["sam","banana","rosa","maca"]
-d=["banana","rosa","maca","sam","sam"]
-print(words_to_sam(a))
-print(words_to_sam(b))
-print(words_to_sam(c))
-print(words_to_sam(d))
+def test_suite():
+    # Run the suite of tests for code in this file
+    test(words_to_sam(["banana","rosa","maca"]) == 3)
+    test(words_to_sam(["banana","sam","rosa","maca"]) == 2)
+    test(words_to_sam(["sam","banana","rosa","maca"]) == 1)
+    test(words_to_sam(["banana","rosa","maca","sam","sam"]) == 4)
+
+test_suite()

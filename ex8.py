@@ -1,3 +1,4 @@
+#Multiplication table from 1 to n
 n = 12
 
 print("       ",end="")
